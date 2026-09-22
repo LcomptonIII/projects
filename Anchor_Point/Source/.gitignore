@@ -1,0 +1,55 @@
+# Anchor Point local configuration / credentials
+config.yaml
+.env
+.env.*
+!.env.example
+
+# Runtime/user data (watch history, resolver cache, checkpoints, sync plans/backups)
+data/
+
+# Logs and crash diagnostics
+*.log
+startup_error.log
+
+# Development/private notes
+context.txt
+.claude/
+
+# Python cache / test output
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE/editor state
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# PyInstaller output
+build/
+dist/
+*.spec
+
+# Inno Setup generated output
+installer/
+
+# Temporary / backup files
+*.tmp
+*.bak
+*.old
+~*
+
+# OS metadata
+.DS_Store
+Thumbs.db
+desktop.ini

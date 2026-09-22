@@ -1,0 +1,40 @@
+# Anchor Point configuration template
+# Normal Windows users should configure services through the GUI.
+# Copy this file to config.yaml only for manual/CLI configuration.
+
+locale: "en-US"
+
+storage:
+  path: "data/history.json"
+
+crunchyroll:
+  # GUI: Crunchyroll tab -> paste the etp_rt cookie -> Configure Crunchyroll.
+  etp_rt: ""
+  client_id: ""
+  client_secret: ""
+
+hidive:
+  # GUI recommended: HIDIVE tab -> Copy request as PowerShell -> paste -> Configure HIDIVE.
+  # Authentication may expire and require reconfiguration.
+  bearer_token: ""
+  api_key: ""
+  app_version: "6.60.0.7f55f6c"
+
+# Optional: only export episodes watched on/after this date (YYYY-MM-DD).
+export_since: ""
+
+exporters:
+  mal_xml:
+    path: "data/animelist.xml"
+
+  anilist:
+    # GUI recommended: Export & Sync Settings.
+    # Use the built-in developer-page and Copy Redirect URL buttons, then Configure AniList.
+    client_id: ""
+    access_token: ""
+
+  mal:
+    # GUI recommended: Export & Sync Settings.
+    client_id: ""
+    client_secret: ""
+    access_token: ""
