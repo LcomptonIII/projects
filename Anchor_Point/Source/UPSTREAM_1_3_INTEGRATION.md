@@ -35,3 +35,8 @@ multi-source work on top of it.
 - config.example.yaml: upstream v1.3 settings retained; optional HIDIVE settings added
 
 No AniList write is performed by resolve-all or anilist-plan.
+
+
+## Upstream v1.3.1 compatibility update
+
+Anchor Point 1.0.1 incorporates the CrunchyExporter v1.3.1 watch-history compatibility behavior: cursor-based Crunchyroll pagination and preservation of successfully downloaded episodes when a later page fails. Anchor Point retains its own multi-source resolver and production-safe synchronization pipeline.

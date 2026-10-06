@@ -1,10 +1,10 @@
-# Anchor Point 1.0.0 Release Checklist
+# Anchor Point 1.0.1 Release Checklist
 
-Use this checklist on Windows for the final 1.0.0 artifacts. The production code is frozen from the validated RC2.11 baseline.
+Use this checklist on Windows for the final 1.0.1 artifacts. The production code is frozen from the validated RC2.11 baseline.
 
 ## Executable
 
-- Extract the 1.0.0 source ZIP to a new folder.
+- Extract the 1.0.1 source ZIP to a new folder.
 - Run `build_windows.bat`.
 - Confirm `dist\AnchorPoint.exe` is produced.
 - Launch Anchor Point and confirm the GUI remains open.
@@ -18,7 +18,7 @@ Use this checklist on Windows for the final 1.0.0 artifacts. The production code
 
 - Install Inno Setup 6.
 - Run `build_installer.bat`.
-- Confirm `installer\AnchorPoint-1.0.0-Setup.exe` is produced.
+- Confirm `installer\AnchorPoint-1.0.1-Setup.exe` is produced.
 - Install it and launch the installed copy.
 - Confirm Start Menu and optional desktop shortcuts work.
 - Confirm configuration/local data persist as expected.
@@ -26,7 +26,7 @@ Use this checklist on Windows for the final 1.0.0 artifacts. The production code
 
 ## Release integrity
 
-- Confirm the application reports version `1.0.0`.
+- Confirm the application reports version `1.0.1`.
 - Confirm no personal `config.yaml`, authentication data, viewing-history imports, backups, or logs are included in the public package.
 - Run `py -3.11 -m pytest -q` from the source tree.
 - Make no functional changes after this validation without returning to release-candidate testing.

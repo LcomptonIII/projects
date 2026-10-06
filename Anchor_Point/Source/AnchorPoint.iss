@@ -1,5 +1,5 @@
 #define MyAppName "Anchor Point"
-#define MyAppVersion "1.0.0"
+#define MyAppVersion "1.0.1"
 #define MyAppPublisher "Anchor Point"
 #define MyAppExeName "AnchorPoint.exe"
 
@@ -16,7 +16,7 @@ SolidCompression=yes
 ArchitecturesAllowed=x64compatible
 ArchitecturesInstallIn64BitMode=x64compatible
 OutputDir=installer
-OutputBaseFilename=AnchorPoint-1.0.0-Setup
+OutputBaseFilename=AnchorPoint-1.0.1-Setup
 SetupIconFile=anchorpointlogo.ico
 WizardStyle=modern
 PrivilegesRequired=lowest

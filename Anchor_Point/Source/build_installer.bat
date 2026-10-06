@@ -37,13 +37,13 @@ echo.
 "%ISCC%" AnchorPoint.iss
 if errorlevel 1 exit /b 1
 
-if not exist "installer\AnchorPoint-1.0.0-Setup.exe" (
+if not exist "installer\AnchorPoint-1.0.1-Setup.exe" (
   echo.
-  echo ERROR: Inno Setup finished, but installer\AnchorPoint-1.0.0-Setup.exe was not found.
+  echo ERROR: Inno Setup finished, but installer\AnchorPoint-1.0.1-Setup.exe was not found.
   exit /b 3
 )
 
 echo.
 echo Installer created successfully:
-echo   %CD%\installer\AnchorPoint-1.0.0-Setup.exe
+echo   %CD%\installer\AnchorPoint-1.0.1-Setup.exe
 endlocal

@@ -11,7 +11,7 @@ from rich import print as rprint
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from src.crunchyroll.auth import CRAuth, CRAuthError, DEFAULT_CLIENT_ID, DEFAULT_CLIENT_SECRET
-from src.crunchyroll.history import CRHistory
+from src.crunchyroll.history import CRHistory, CRHistoryFetchError
 from src.storage.history_store import HistoryStore
 from src.exporters.anilist import AniListExporter
 from src.exporters.mal import MALExporter, get_auth_url as mal_auth_url, exchange_code as mal_exchange
@@ -111,11 +111,29 @@ def fetch(ctx, etp_rt, replace):
 
     console.print(f"[green]Logged in.[/green] Account ID: {token.account_id}")
 
-    with console.status("[bold green]Fetching watch history..."):
-        history = CRHistory(token)
-        episodes = history.fetch_all(locale=cfg.get("locale", "en-US"))
+    history = CRHistory(token)
+    partial_error = None
+    try:
+        with console.status("[bold green]Fetching watch history..."):
+            episodes = history.fetch_all(locale=cfg.get("locale", "en-US"))
+    except CRHistoryFetchError as e:
+        episodes = e.partial_episodes
+        partial_error = e
 
     store = HistoryStore(Path(store_path))
+    if partial_error is not None:
+        if episodes:
+            added = store.update(episodes)
+            console.print(
+                f"[yellow]Crunchyroll history download stopped early:[/yellow] {partial_error}"
+            )
+            console.print(
+                f"[yellow]Preserved {len(episodes)} downloaded episodes; {added} were new. "
+                "Existing local history was not replaced.[/yellow]"
+            )
+        else:
+            console.print(f"[red]Crunchyroll history fetch failed:[/red] {partial_error}")
+        raise SystemExit(1)
     if replace:
         store.replace(episodes)
         console.print(f"[green]Saved {len(episodes)} episodes[/green] to {store_path} (replaced).")

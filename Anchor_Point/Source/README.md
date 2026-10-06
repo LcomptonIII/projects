@@ -1,4 +1,4 @@
-# Anchor Point 1.0.0
+# Anchor Point 1.0.1
 
 **Your anime history, connected.**
 
@@ -33,7 +33,3 @@ Preview is read-only. Previously safe single-entry mappings can be reused from t
 ## Project lineage
 
 Anchor Point grew from the open-source CrunchyExporter project by ruflas and retains portions of its upstream architecture. See `UPSTREAM_1_3_INTEGRATION.md` and `LICENSE` for lineage and licensing information.
-
-## GitHub / source-control safety
-
-Do not commit `config.yaml` or the `data/` directory. They can contain local credentials, watch history, resolver caches, checkpoints, sync plans, and account-specific runtime data. Generated `build/`, `dist/`, and `installer/` output is also excluded by `.gitignore`; publish compiled binaries as GitHub Release assets instead. Use `config.example.yaml` as the public configuration template.

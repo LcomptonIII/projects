@@ -26,7 +26,7 @@ jobs:
         run: build_windows.bat
       - uses: actions/upload-artifact@v4
         with:
-          name: AnchorPoint-1.0.0-windows-x64
+          name: AnchorPoint-1.0.1-windows-x64
           path: dist/AnchorPoint.exe
       - name: Attach EXE to tagged release
         if: startsWith(github.ref, 'refs/tags/')

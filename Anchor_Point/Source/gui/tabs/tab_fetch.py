@@ -273,7 +273,16 @@ def _sync_worker(etp_rt, replace, cfg, data_root, log, done, is_cancelled):
                 log(i18n.t("sync_log_page", count=len(episodes)), "info")
         log(i18n.t("sync_log_dl_done", count=len(episodes)), "ok")
     except Exception as e:
-        log(i18n.t("sync_log_history_error", error=e), "error")
+        # Cursor/API failures can happen after several successful pages. Keep
+        # those episodes instead of discarding the partial download, and never
+        # replace existing history with an incomplete result.
+        if episodes:
+            store = HistoryStore(store_p)
+            added = store.update(episodes)
+            log(i18n.t("sync_log_history_error", error=e), "error")
+            log(f"Preserved {len(episodes)} downloaded Crunchyroll episodes ({added} new); existing history was not replaced.", "warn")
+        else:
+            log(i18n.t("sync_log_history_error", error=e), "error")
         done(False)
         return
 

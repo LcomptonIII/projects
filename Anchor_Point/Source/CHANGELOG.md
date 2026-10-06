@@ -1,3 +1,11 @@
+# Anchor Point 1.0.1
+
+- Updated Crunchyroll watch-history pagination for the API's cursor-based `meta.next_page` contract, replacing numbered `page` requests that now fail on long histories.
+- Preserve successfully downloaded Crunchyroll episodes if a later page fails; an incomplete fetch is merged and never used to replace existing local history.
+- Added regression tests for cursor pagination, long histories, repeated-cursor protection, and partial-download preservation.
+- Based on the upstream CrunchyExporter v1.3.1 watch-history compatibility fix.
+- No resolver, cache schema, AniList/MAL sync-safety, HIDIVE, Netflix, or GUI workflow changes.
+
 # Anchor Point 1.0.0
 
 - Promoted the validated RC2.11 codebase to the 1.0.0 production release.
